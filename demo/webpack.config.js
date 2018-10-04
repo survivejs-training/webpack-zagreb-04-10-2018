@@ -10,6 +10,7 @@ const commonConfig = merge([
         title: "Webpack demo",
       }),
     ],
+    devtool: "source-map"
   },
 ]);
 
@@ -21,6 +22,9 @@ const developmentConfig = merge([
     host: process.env.HOST,
     port: process.env.PORT,
   }),
+  {
+    devtool: "cheap-module-eval-source-map"
+  }
 ]);
 
 module.exports = mode => {
