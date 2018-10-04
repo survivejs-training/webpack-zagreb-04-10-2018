@@ -31,3 +31,28 @@
 ```javascript
 module.exports = a => a + a
 ```
+
+**resolving**
+
+```javascript
+import foo from 'foo';
+```
+
+**Configuration:**
+
+```javascript
+const config = {
+  resolve: {
+    alias: {
+      foo: path.resolve(__dirname, 'some/foo.js')
+    },
+    extensions: [
+      '.js', '.jsx', '.ts', '.tsx'
+    ],
+    modules: [
+      path.resolve(__dirname, 'my_modules'),
+      path.resolve(__dirname, 'node_modules')
+    ],
+  },
+};
+```
