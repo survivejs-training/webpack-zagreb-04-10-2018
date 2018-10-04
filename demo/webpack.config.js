@@ -1,3 +1,4 @@
+const path = require("path")
 const merge = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -12,6 +13,7 @@ const commonConfig = merge([
     ],
     devtool: "source-map"
   },
+  parts.loadJavaScript({ include: path.resolve(__dirname, 'src') }),
 ]);
 
 const productionConfig = merge([
