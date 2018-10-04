@@ -25,3 +25,9 @@
 * How to pass configuration parameters to the frontends
 
 ## Examples
+
+**Loader:**
+
+```javascript
+module.exports = a => a + a
+```
