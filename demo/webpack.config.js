@@ -12,6 +12,7 @@ const commonConfig = merge([
     ],
     devtool: "source-map"
   },
+  parts.loadCSS(),
 ]);
 
 const productionConfig = merge([]);
