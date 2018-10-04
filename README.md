@@ -56,3 +56,15 @@ const config = {
   },
 };
 ```
+
+## Loading Styles
+
+```javascript
+use: ["style-loader", "css-loader"]
+```
+
+read as
+
+```javascript
+styleLoader(cssLoader(css))
+```
