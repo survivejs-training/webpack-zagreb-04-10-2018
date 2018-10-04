@@ -12,10 +12,13 @@ const commonConfig = merge([
     ],
     devtool: "source-map"
   },
-  parts.loadCSS(),
 ]);
 
-const productionConfig = merge([]);
+const productionConfig = merge([
+  parts.extractCSS({
+    use: "css-loader",
+  }),
+]);
 
 const developmentConfig = merge([
   parts.devServer({
@@ -25,7 +28,8 @@ const developmentConfig = merge([
   }),
   {
     devtool: "cheap-module-eval-source-map"
-  }
+  },
+  parts.loadCSS(),
 ]);
 
 module.exports = mode => {
