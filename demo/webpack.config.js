@@ -13,13 +13,31 @@ const commonConfig = merge([
     ],
     devtool: "source-map"
   },
-  parts.loadJavaScript({ include: path.resolve(__dirname, 'src') }),
+  parts.loadJavaScript({
+    include: path.resolve(__dirname, 'src')
+  }),
 ]);
 
 const productionConfig = merge([
+  {
+    output: {
+      chunkFilename: "[name].[chunkhash].js",
+      filename: "[name].[chunkhash].js",
+    },
+  },
   parts.extractCSS({
     use: "css-loader",
   }),
+  {
+    optimization: {
+      splitChunks: {
+        chunks: "initial",
+      },
+      runtimeChunk: {
+        name: "manifest",
+      },
+    },
+  },
 ]);
 
 const developmentConfig = merge([
